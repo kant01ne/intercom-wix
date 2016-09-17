@@ -11,13 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160916222447) do
+ActiveRecord::Schema.define(version: 20160917133538) do
 
   create_table "apps", force: :cascade do |t|
     t.string   "intercom_app_id", null: false
     t.string   "intercom_token",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email"
+    t.string   "name"
+    t.string   "compId"
   end
 
   add_index "apps", ["intercom_app_id"], name: "index_apps_on_intercom_app_id", unique: true

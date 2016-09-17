@@ -1,3 +1,10 @@
+PATH
+  remote: ~/src/intercom-ruby-app
+  specs:
+    intercom-app (0.2.1)
+      intercom (~> 3.5)
+      omniauth-intercom (~> 0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -60,9 +67,6 @@ GEM
     i18n (0.7.0)
     intercom (3.5.2)
       json (~> 1.8)
-    intercom-app (0.2.0)
-      intercom (~> 3.5)
-      omniauth-intercom (~> 0.1)
     jbuilder (2.6.0)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -173,7 +177,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
-  intercom-app
+  intercom-app!
   jbuilder (~> 2.0)
   jquery-rails
   rails (= 4.2.7.1)
