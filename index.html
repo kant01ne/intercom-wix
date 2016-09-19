@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Intercom-wix by Skaelv</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Intercom-wix</h1>
+      <h2 class="project-tagline">Add Intercom widget on Wix Website</h2>
+      <a href="https://github.com/Skaelv/intercom-wix" class="btn">View on GitHub</a>
+      <a href="https://github.com/Skaelv/intercom-wix/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/Skaelv/intercom-wix/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <p><a href="https://circleci.com/gh/Skaelv/intercom-wix/tree/master"><img src="https://circleci.com/gh/Skaelv/intercom-wix/tree/master.svg?style=svg" alt="CircleCI"></a></p>
+
+<h1>
+<a id="intercom-wix" class="anchor" href="#intercom-wix" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Intercom-Wix</h1>
+
+<hr>
+
+<p>This application allows any Wix users to easily add the Intercom Business Messenger to their websites.
+<img src="https://github.com/Skaelv/intercom-wix/raw/master/images/intercom-business-messenger.png?raw=true" alt="Intercom Business Messenger"></p>
+
+<h2>
+<a id="description" class="anchor" href="#description" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+
+<p>This application has been generated using <a href="http://github.com/intercom/intercom-ruby-app">intercom-ruby-app</a>.</p>
+
+<p>It generates a boilerplate application with an <code>App</code> ActiveRessource model that allows to automatically store the following attributes :</p>
+
+<ul>
+<li>
+<code>intercom_app_id</code>: used to load the widget</li>
+<li>
+<code>intercom_token</code>: used for API calls (See <a href="https://developers.intercom.io/reference">Intercom API Refs</a>)</li>
+<li>
+<code>name</code>: Name of the admin who authenticated</li>
+<li>
+<code>email</code>: Email of the admin who authenticated</li>
+</ul>
+
+<p>To associate a Wix website to an Intercom <code>app_id</code>, a new unique identifier for Wix (<code>compId</code>) has been added to <code>App</code> model by running a rake migration.
+The <code>store_in_session_before_login</code> and <code>callback_hash</code> <a href="https://github.com/Skaelv/intercom-wix/blob/master/config/initializers/intercom_app.rb#L6-L15">IntercomApp initializer Proc</a> helped to associate this <code>compId</code> to an app on OAuth Callback.</p>
+
+<h2>
+<a id="roadmap" class="anchor" href="#roadmap" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Roadmap</h2>
+
+<ul>
+<li>Insert Intercom Messenger when user are logged in</li>
+<li>Import Wix Users ?</li>
+<li>Trigger Intercom events on lead/user call to actions ?</li>
+</ul>
+
+<h2>
+<a id="development" class="anchor" href="#development" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Development</h2>
+
+<p>You will need Intercom/Wix credentials to start contributing to this project:</p>
+
+<h3>
+<a id="wix" class="anchor" href="#wix" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Wix</h3>
+
+<ul>
+<li>Create a <a href="http://dev.wix.com/app/create-app">Wix app</a> for development purpose</li>
+<li>Create a <code>Fixed Position Component</code> with following settings:
+
+<ul>
+<li>position: <code>Bottom Right</code>
+</li>
+<li>width: <code>450px</code>
+</li>
+<li>height: <code>800px</code>
+</li>
+<li>Widget Url: <code>https://localhost:3000/widget</code>
+</li>
+<li>Settings Url: <code>https://localhost:3000/settings</code>
+</li>
+</ul>
+</li>
+</ul>
+
+<p><img src="https://github.com/Skaelv/intercom-wix/raw/master/images/wix-widget-settings.png?raw=true" alt="Wix widget settings"></p>
+
+<h3>
+<a id="intercom" class="anchor" href="#intercom" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Intercom</h3>
+
+<p>To create an Intercom application and get your client_id and client_secret you will first need to <a href="https://app.intercom.io/a/start">create an Intercom account</a> if you don't have one already. Once your application is created you can apply for an OAuth application in the <code>App Settings &gt;&gt; OAuth</code> section. Make sure you request <code>read admin</code> permission for use with omniauth-intercom.</p>
+
+<p><img src="https://github.com/Skaelv/intercom-wix/raw/master/images/intercom-oauth-app.png?raw=true" alt="Intercom App settings"></p>
+
+<p>Export your credentials in your <code>~/.profile</code> or <code>~/.bashrc</code> file:</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-k">export</span> INTERCOM_WIX_CLIENT_ID=<span class="pl-k">&lt;</span>INTERCOM_WIX_CLIENT_ID<span class="pl-k">&gt;</span>
+<span class="pl-k">export</span> INTERCOM_WIX_CLIENT_SECRET=<span class="pl-k">&lt;</span>INTERCOM_WIX_CLIENT_SECRET<span class="pl-k">&gt;</span>
+<span class="pl-k">export</span> INTERCOM_WIX_HUB_SECRET=<span class="pl-k">&lt;</span>INTERCOM_WIX_HUB_SECRET<span class="pl-k">&gt;</span>
+<span class="pl-k">export</span> WIX_CLIENT_ID=<span class="pl-k">&lt;</span>WIX_CLIENT_ID<span class="pl-k">&gt;</span>
+<span class="pl-k">export</span> WIX_CLIENT_SECRET=<span class="pl-k">&lt;</span>WIX_CLIENT_SECRET<span class="pl-k">&gt;</span></pre></div>
+
+<p>Don't forget to run <code>source ~/.profile</code></p>
+
+<p>Then you simply need to run the following commands:</p>
+
+<div class="highlight highlight-source-shell"><pre>git clone https://github.com/Skaelv/intercom-wix.git
+<span class="pl-c1">cd</span> intercom-wix
+bundle install
+bundle <span class="pl-c1">exec</span> rspec</pre></div>
+
+<p>And start coding :)</p>
+
+<h2>
+<a id="pull-requests" class="anchor" href="#pull-requests" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pull Requests</h2>
+
+<ul>
+<li><p><strong>Add tests!</strong> Your patch won't be accepted if it doesn't have tests.</p></li>
+<li><p><strong>Document any change in behaviour</strong>. Make sure the README and any other
+relevant documentation are kept up-to-date.</p></li>
+<li><p><strong>Create topic branches</strong>. Don't ask us to pull from your master branch.</p></li>
+<li><p><strong>One pull request per feature</strong>. If you want to do more than one thing, send
+multiple pull requests.</p></li>
+<li><p><strong>Send coherent history</strong>. Make sure each individual commit in your pull
+request is meaningful. If you had to make multiple intermediate commits while
+developing, please squash them before sending them to us.</p></li>
+</ul>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/Skaelv/intercom-wix">Intercom-wix</a> is maintained by <a href="https://github.com/Skaelv">Skaelv</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
