@@ -3,6 +3,7 @@
 Intercom-Wix
 ===========
 
+[Visit intercom-wix page](https://skaelv.github.io/intercom-wix)
 
 This application allows any Wix users to easily add the Intercom Business Messenger to their websites.
 ![Intercom Business Messenger](https://github.com/Skaelv/intercom-wix/raw/master/images/intercom-business-messenger.png?raw=true)
