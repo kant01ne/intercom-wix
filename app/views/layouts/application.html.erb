@@ -4,11 +4,10 @@
   <title>IntercomWix</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script type="text/javascript" src="//sslstatic.wix.com/services/js-sdk/1.44.0/js/wix.min.js"></script>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-<%= yield %>
-
+<body class="t__body" style="background-color: #f0f4f7;">
+  <%= yield %>
 </body>
 </html>
