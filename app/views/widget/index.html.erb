@@ -1,5 +1,5 @@
 <script id="intercom-wix" type="text/javascript" src="//static.parastorage.com/services/js-sdk/1.66.0/js/wix.min.js"></script>
-<% if @app_id %>
+<% unless @app_id.nil? %>
   <script id="intercom-settings">
     window.intercomSettings = { app_id: "<%= @app_id %>"};
   </script>
