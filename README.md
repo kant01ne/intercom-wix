@@ -3,6 +3,10 @@
 Intercom-Wix
 ===========
 
+**This is not an official integration between Wix and Intercom.
+This is an example application developed during a hackaton and is not available in production for customers to use.
+I leave it here to provide examples code of how to build integrations with intercom**
+
 [Visit intercom-wix page](https://skaelv.github.io/intercom-wix)
 
 [Install Intercom Widget on Wix](https://youtu.be/odPQMn3GJuc)
